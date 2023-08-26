@@ -9,6 +9,8 @@ import {
   SocialAuthServiceConfig
 } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,9 +18,11 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpClientModule
   ],
   providers: [
+    CookieService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

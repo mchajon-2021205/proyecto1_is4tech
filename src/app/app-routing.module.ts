@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { protectoGuard } from './protector.guard';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'dogs',
+    canActivate: [protectoGuard],
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {

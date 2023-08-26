@@ -1,1 +1,33 @@
-<p>dogs works!</p>
+<div class="container">
+  <app-nav-bar></app-nav-bar>
+</div>
+
+<div style="display: flex">
+  <div class="card" style="width: 18rem">
+    <img
+      class="card-img-top"
+      src="{{ message.message }}"
+      alt="Card image cap"
+      height="350"
+    />
+    <div class="card-body row justify-content-center">
+      <button class="btn btn-danger" (click)="cambiarImage()">
+        Cambiar de imagen
+      </button>
+    </div>
+  </div>
+
+  <div class="mx-4">
+    <textarea [(ngModel)]="valorTextArea"></textarea>
+    <button
+      class="btn btn-danger mb-5"
+      appWhiteSpace="{{ valorTextArea }}"
+      (modificarV)="modificarValorButton($event)"
+    >
+      Quitar Espacios
+    </button>
+    <div>
+      {{ modifiedText }}
+    </div>
+  </div>
+</div>
