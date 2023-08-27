@@ -2,7 +2,7 @@
   <app-nav-bar></app-nav-bar>
 </div>
 
-<div style="display: flex">
+<div style="display: flex; justify-content: center; padding: 1rem">
   <div class="card" style="width: 18rem">
     <img
       class="card-img-top"
@@ -20,7 +20,7 @@
   <div class="mx-4">
     <textarea [(ngModel)]="valorTextArea"></textarea>
     <button
-      class="btn btn-danger mb-5"
+      class="btn btn-danger mb-5 mx-2 button"
       appWhiteSpace="{{ valorTextArea }}"
       (modificarV)="modificarValorButton($event)"
     >
