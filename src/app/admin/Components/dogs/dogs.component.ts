@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DogServiceService } from '../../Services/dog-service.service';
 
 @Component({
@@ -6,16 +6,30 @@ import { DogServiceService } from '../../Services/dog-service.service';
   templateUrl: './dogs.component.html',
   styleUrls: ['./dogs.component.css']
 })
-export class DogsComponent implements OnInit {
+export class DogsComponent implements OnInit,  OnDestroy {
   message: any = '';
   valorTextArea = '';
   inputValue?: string;
   modifiedText?: string;
+  onChange: string = '';
+  valorActualizado: string = 'Hola Mundo'
+
 
   constructor(private dogService: DogServiceService) {}
 
+  
+
   ngOnInit(): void {
     this.peticionImagen();
+    setTimeout(
+      () => {
+        this.valorActualizado = 'Hola Casa'
+      }, 30000)
+    }
+
+  //Destruir
+  ngOnDestroy(): void {
+    console.log('Destruccion del componente')
   }
 
   //Peticion de la imagen

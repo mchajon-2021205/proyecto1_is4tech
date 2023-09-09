@@ -4,12 +4,7 @@
 
 <div style="display: flex; justify-content: center; padding: 1rem">
   <div class="card" style="width: 18rem">
-    <img
-      class="card-img-top"
-      src="{{ message.message }}"
-      alt="Card image cap"
-      height="350"
-    />
+    <img class="card-img-top" src="{{ message.message }}" alt="Card image cap" height="350" />
     <div class="card-body row justify-content-center">
       <button class="btn btn-danger" (click)="cambiarImage()">
         Cambiar de imagen
@@ -19,15 +14,29 @@
 
   <div class="mx-4">
     <textarea [(ngModel)]="valorTextArea"></textarea>
-    <button
-      class="btn btn-danger mb-5 mx-2 button"
-      appWhiteSpace="{{ valorTextArea }}"
-      (modificarV)="modificarValorButton($event)"
-    >
+    <button class="btn btn-danger mb-5 mx-2 button" appWhiteSpace="{{ valorTextArea }}"
+      (modificarV)="modificarValorButton($event)">
       Quitar Espacios
     </button>
     <div>
       {{ modifiedText }}
     </div>
+  </div>
+
+
+</div>
+
+<div style="margin: auto; width: 350px;">
+  <div>
+    <form action="">
+      <label for="onChange" class="mb-2" style="display: block;">Ingrese un Valor</label>
+      <input type="text" id="onChange" [(ngModel)]="onChange" name="onChange">
+    </form>
+
+    <app-hijo [cambio]="onChange"></app-hijo>
+
+    <hr>
+    <app-parametros-entrada [actualizar]="valorActualizado"></app-parametros-entrada>
+
   </div>
 </div>
