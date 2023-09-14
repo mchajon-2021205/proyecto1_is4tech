@@ -1,0 +1,36 @@
+.numero-formateado{
+    display: flex;
+}
+
+.numero-formateado span{
+    margin-left: 10px;    
+}
+
+
+.hover{
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    transform: 300ms;
+}
+
+.copy{
+    min-width: 100px;
+    padding: 10px;
+}
+
+.copy p {
+    height: 60px;
+    line-height: 50px;
+}
+
+.container{
+    max-width: 500px;
+}
+
+.flecha{
+    margin-left: -5rem;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}

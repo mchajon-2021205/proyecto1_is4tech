@@ -1,0 +1,37 @@
+
+<div class="container mt-5">
+    
+    <section class="flecha">
+        <i class="bi bi-arrow-left" routerLink="/dogs"></i>
+    </section>
+    
+
+    <section >
+        <div class="form-group">
+            <label >Ingresa un numero</label>
+            <input class="form-control" type="number" [appBlur]="valorInput" [(ngModel)]="valorInput" (formateado)="formatoValor($event)">
+        </div>
+        
+        <div class="numero-formateado form-group mt-3">
+            <p>Numero formateado:</p>
+            <span>{{numero}}</span>
+        </div>
+
+    </section>
+
+    <section>
+        <div class="hover">
+            <h1 [appHighlight]="color" segundoColor="white">Hola</h1>
+        </div>
+    </section>
+
+    <section>
+        <div class="copy">
+            <p [appCopy]="valorCopiado">{{valorCopiado}}</p>
+        </div>
+        <p>{{cortarCadena | substring:10}}</p>
+
+    </section>
+
+</div>
+

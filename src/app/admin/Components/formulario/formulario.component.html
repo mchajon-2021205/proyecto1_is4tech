@@ -1,0 +1,140 @@
+<div class="container mt-5">
+
+    <div>
+       <i class="bi bi-arrow-left font" routerLink="/dogs"></i>
+    </div>
+    <form [formGroup]="form" novalidate (ngSubmit)="save($event)">
+
+        <!-- NAME -->
+        <section class="form-group">
+            <label for="name">Nombre</label>
+            <input class="form-control " type="text" formControlName="name" >
+
+            <!-- Mostrar alertas -->
+             <div *ngIf="form.get('name').errors">
+                <p class="alert alert-danger" *ngIf="form.get('name').hasError('NoSpecialCharacteresValidator') && form.get('name').touched">
+                    *Solo se permiten numero y letras
+                </p>
+                <p class="alert alert-danger" *ngIf="form.get('name').hasError('NoEmptyValidator') && form.get('name').touched">
+                    *No puedes dejar vacio este campo
+                </p>
+                <p class="alert alert-danger" *ngIf="form.get('name').hasError('WhiteSpace') && form.get('name').touched">
+                    *No puedes dejas espacios al inicio y final
+                </p>
+                <p class="alert alert-danger" *ngIf="form.get('name').hasError('maxlength')">
+                    *Has superado el limite de caracteres
+                </p >
+            </div> 
+        </section>
+
+    
+
+        <div class="row gx-5">
+            
+            <!-- FECHA -->
+            <section class="form-group mt-3 col-4 ps-2 mx-3">
+                <label for="date">Fecha Nacimiento</label>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker"  formControlName="date">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix  [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+    
+                <!-- Mostar errores -->
+                <div *ngIf="form.get('date').errors">
+                    <p class="alert alert-danger" *ngIf="form.get('date').hasError('fecha') && form.get('date').touched">
+                        *La fecha no debe ser mayor a la actual
+                    </p>
+                    <p class="alert alert-danger" *ngIf="form.get('date').hasError('required') && form.get('date').touched">
+                        *Este campo es requerido
+                    </p>
+                </div>
+            </section>
+    
+            <!-- NIT -->
+            <section class="form-group mt-3 col-6 ">
+                <label >NIT</label>
+                <input type="text" class="form-control" formControlName="nit">
+    
+                <!-- Mostar errores -->
+                <div *ngIf="form.get('nit').errors">
+                    <p class="alert alert-warning" *ngIf="form.get('nit').hasError('Nit') && form.get('nit').touched">
+                        **Estructura del nit 00000-0
+                    </p>
+                    <p *ngIf="form.get('nit').hasError('required') && form.get('nit').touched">
+                        *Este campo es obligatorio
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- TEXT AREA -->
+        <section class="form-group mt-3">
+            <label for="">Comentario</label>
+            <textarea class=" form-control" formControlName="textArea"></textarea>
+
+            <!-- Mostrar errores -->
+            <div *ngIf="form.get('textArea').errors">
+                <p class="alert alert-danger" *ngIf="form.get('textArea').hasError('NoSpecialCharacteresValidator') && form.get('textArea').touched">
+                    *Solo se permiten numeros y letras
+                </p>
+                <p class="alert alert-danger" *ngIf="form.get('textArea').hasError('NoEmptyValidator') && form.get('textArea').touched">
+                    *No pudes dejasr vacio este campo
+                </p>
+                <p class="alert alert-danger" *ngIf="form.get('textArea').hasError('WhiteSpace') && form.get('textArea').touched">
+                    *No puedes dejar espacios al inicio y al final 
+                </p>
+                <p class="alert alert-danger" *ngIf="form.get('textArea').hasError('maxlength')">
+                    *Has superado el numero de caracteres
+                </p>
+            </div>
+        </section>
+
+        <!-- NUEVO -->
+        <section class="form-group mt-3">
+            <p>Nuevo Registro</p>
+            <mat-slide-toggle (change)="nuevoResitroActive($event)"></mat-slide-toggle>
+            <div *ngIf="nuevoRegistro" >
+
+                <!-- Telefono -->
+                <div class="form-group col-4">
+                    <label>Telefono de Emergencia</label>
+                    <input type="text" class="form-control" formControlName="phone">
+                    {{form.get('phone').value.length}}/8
+
+                    <!-- Mostrando errores -->
+                    <div *ngIf="form.get('phone').errors">
+                        <p class="alert alert-danger" *ngIf="form.get('phone').hasError('required') && form.get('phone').touched">
+                            *Este campo es requerido
+                        </p>
+                        <p class="alert alert-danger" *ngIf="form.get('phone').hasError('maxlength')">
+                            *Has superado el numero de carateres
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Direccion -->
+                <div class="form-group">
+                    <label for="">Direccion</label>
+                    <input type="text" class="form-control" formControlName="address">
+                    
+
+                    <!-- Mostrar errores -->
+                    <div *ngIf="form.get('address').errors">
+                        <p class="alert alert-danger" *ngIf="form.get('address').hasError('required') && form.get('address').touched">
+                            *Este campo es requerido
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <button class="btn btn-success mt-2" type="submit" [disabled]="form.invalid">Guardar</button>
+        <button class="btn btn-warning mt-2 mx-2" type="button" (click)="limpiar()"  [disabled]="form.invalid">Limpiar</button>
+    </form>
+</div>

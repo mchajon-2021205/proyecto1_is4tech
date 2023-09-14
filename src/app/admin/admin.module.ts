@@ -4,18 +4,30 @@ import { DogsComponent } from './Components/dogs/dogs.component';
 import { RoutesAdminModule } from './routes-admin.module';
 import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HijoComponent } from './Components/hijo/hijo.component';
 import { ParametrosEntradaComponent } from './Components/parametros-entrada/parametros-entrada.component';
+import { DirectivasComponent } from './Components/directivas/directivas.component';
+import { RouterModule } from '@angular/router';
+import { FormularioComponent } from './Components/formulario/formulario.component';
+import { MaterialModule } from '../material.module';
+
+
+
+
 
 @NgModule({
-  declarations: [DogsComponent, HijoComponent, ParametrosEntradaComponent],
+  declarations: [DogsComponent, HijoComponent, ParametrosEntradaComponent, DirectivasComponent, FormularioComponent],
   imports: [
     CommonModule,
     RoutesAdminModule,
     SharedModule,
     HttpClientModule,
-    FormsModule
-  ]
+    FormsModule,
+    RouterModule,
+    ReactiveFormsModule,
+    MaterialModule
+  ],
+  
 })
 export class AdminModule {}
