@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DogServiceService } from '../../Services/dog-service.service';
+import { DatosAuditoria } from 'src/app/Interfaces/datos-auditoria';
 
 @Component({
   selector: 'app-dogs',
@@ -13,11 +14,17 @@ export class DogsComponent implements OnInit,  OnDestroy {
   modifiedText?: string;
   onChange: string = '';
   valorActualizado: string = 'Hola Mundo'
+  click: boolean = false
+  datosAuditoria: DatosAuditoria = {
+    userCreated: 'Eduardo Fernando',
+    dateCreated: '12/02/2021',
+    userUpdated: 'Marlon Chajon',
+    dateUpdated: '14/02/2021'
+  }
 
 
   constructor(private dogService: DogServiceService) {}
 
-  
 
   ngOnInit(): void {
     this.peticionImagen();
@@ -56,4 +63,14 @@ export class DogsComponent implements OnInit,  OnDestroy {
     console.log((this.modifiedText = modifiedValue));
     this.valorTextArea = '';
   }
+
+  //Abir dialogo
+  abrirDialogo(){
+    this.click = true
+  }
+
+  //Cerrar dialogo
+  dialogoCerrado(click: boolean){
+    this.click = click
+  }   
 }

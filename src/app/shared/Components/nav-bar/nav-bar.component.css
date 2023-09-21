@@ -1,0 +1,27 @@
+nav {
+    margin: auto;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: auto;
+    max-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 0rem 1rem 0rem 1rem;
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+  }
+
+  nav ul li a:hover {
+    color: rgb(83, 81, 81);
+  }

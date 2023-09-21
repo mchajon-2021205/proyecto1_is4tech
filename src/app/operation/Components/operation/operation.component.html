@@ -1,0 +1,8 @@
+<div class="container">
+  <app-nav-bar></app-nav-bar>
+
+    <button class="btn btn-warning" (click)="abrirDialogo()">Abirir Dialogo</button>
+
+    <app-audit *ngIf="click" [cerrar]="click" [datosAuditoria]="datosAuditoria"
+        (dialogoCerrado)="dialogoCerrado($event)"></app-audit>
+</div>

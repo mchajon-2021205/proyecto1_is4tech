@@ -27,7 +27,12 @@
     <div>
       {{ modifiedText }}
     </div>
+    
+    <button class="btn btn-warning" (click)="abrirDialogo()">Abirir Dialogo</button>
+
   </div>
+
+
 
 
 </div>
@@ -44,5 +49,9 @@
     <hr>
     <app-parametros-entrada [actualizar]="valorActualizado"></app-parametros-entrada>
 
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
 </div>
+
+<app-audit *ngIf="click" [cerrar]="click" [datosAuditoria]="datosAuditoria"
+  (dialogoCerrado)="dialogoCerrado($event)"></app-audit>

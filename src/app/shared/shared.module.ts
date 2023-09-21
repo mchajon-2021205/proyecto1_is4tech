@@ -6,7 +6,8 @@ import { WhiteSpaceDirective } from './white-space.directive';
 import { BlurDirective } from './blur.directive';
 import { HighlightDirective } from './highlight.directive';
 import { CopyDirective } from './copy.directive';
-import { SubstringPipe } from './substring.pipe';
+import { SubstringPipe } from './pipes/substring.pipe';
+import { AuditComponent } from './Components/audit/audit.component';
 
 
 
@@ -17,7 +18,8 @@ import { SubstringPipe } from './substring.pipe';
     BlurDirective,
     HighlightDirective,
     CopyDirective,
-    SubstringPipe
+    SubstringPipe,
+    AuditComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { SubstringPipe } from './substring.pipe';
     BlurDirective,
     HighlightDirective,
     CopyDirective,
-    SubstringPipe
+    SubstringPipe,
+    AuditComponent
   ]
 })
 export class SharedModule { }
